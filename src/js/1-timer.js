@@ -23,7 +23,12 @@ const options = {
     const selectedDate = selectedDates[0];
 
     if (selectedDate <= new Date()) {
-      window.alert("Please choose a date in the future");
+      iziToast.error({
+        title: "Error",
+        message: "Please choose a date in the future",
+        position: "topRight",
+        timeout: 3000,
+      });
       startButton.disabled = true;
     } else {
       userSelectedDate = selectedDate;
@@ -31,6 +36,7 @@ const options = {
     }
   },
 };
+
 
 flatpickr(dateTimePicker, options);
 
